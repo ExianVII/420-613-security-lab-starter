@@ -16,7 +16,8 @@ namespace SecurityLab1_Starter
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                constraints: new { action = "Contact|About|GenError"}
             );
 
             routes.MapRoute(
@@ -26,10 +27,15 @@ namespace SecurityLab1_Starter
                 );
 
             routes.MapRoute(
+                name: "Error",
+                url: "Error/ServerError",
+                defaults: new { controller = "Error", action = "ServerError" }
+                );
+
+            routes.MapRoute(
                 name: "404-PageNotFound",
                 url: "{*url}",
                  defaults: new { controller = "Error", action = "NotFound" }
-               
                 );
         }
     }

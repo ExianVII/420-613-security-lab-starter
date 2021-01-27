@@ -13,6 +13,14 @@ namespace SecurityLab1_Starter.Controllers
             return View();
         }
 
+        //500 error
+        public ActionResult GenError()
+        {
+            return new HttpStatusCodeResult(500);
+            throw new Exception();
+            throw new DivideByZeroException(); //DivisionByZero is something that works with a different library and I don't know how to use.
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
