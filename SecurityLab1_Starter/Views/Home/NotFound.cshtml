@@ -1,6 +1,8 @@
 ﻿
 @{
     ViewBag.Title = "NotFound";
+
+    HttpContext.Current.Server.TransferRequest("/404", false);
 }
 
 <h2>404- Page Not Found</h2>
