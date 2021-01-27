@@ -14,7 +14,7 @@ namespace SecurityLab1_Starter.Controllers
             return View();
         }
 
-        public ActionResult Error()
+        public ActionResult Error(String url)
         {
             return View();
         }
