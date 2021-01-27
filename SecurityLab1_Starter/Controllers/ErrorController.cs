@@ -8,16 +8,20 @@ namespace SecurityLab1_Starter.Controllers
 {
     public class ErrorController : Controller
     {
+
+        public ActionResult Index()
+        {
+            return View();
+        }
         // GET: Error
-        [Route("/404-PageNotFound")]
         public ActionResult NotFound()
         {
-            Response.StatusCode = 404;
             return View();
         }
 
-        public ActionResult Error(String url)
+        public ActionResult ServerError()
         {
+            ViewBag.CurrentUrl = Request.QueryString["aspxerrorpath"];
             return View();
         }
     }
