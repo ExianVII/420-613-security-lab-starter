@@ -20,6 +20,12 @@ namespace SecurityLab1_Starter
             );
 
             routes.MapRoute(
+                name:"Inventory",
+                url: "{controller}/{action}/{id}",
+                defaults: new {controller = "Inventory", action = "Index", id = UrlParameter.Optional}
+                );
+
+            routes.MapRoute(
                 name: "404-PageNotFound",
                 url: "{*url}",
                  defaults: new { controller = "Error", action = "NotFound" }
