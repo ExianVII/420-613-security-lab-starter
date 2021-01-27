@@ -9,7 +9,7 @@ namespace SecurityLab1_Starter.Controllers
     public class ErrorController : Controller
     {
         // GET: Error
-        [Route("404")]
+        [Route("/404-PageNotFound")]
         public ActionResult NotFound()
         {
             Response.StatusCode = 404;
