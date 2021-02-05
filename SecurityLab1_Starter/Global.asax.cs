@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,6 +18,13 @@ namespace SecurityLab1_Starter
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
-       
+
+        protected void Application_Error()
+        {
+
+            LogingUtil lg = new LogingUtil();
+            lg.LogEvent(Server.GetLastError(), EventLogEntryType.Error);
+
+        }
     }
-}
+    }

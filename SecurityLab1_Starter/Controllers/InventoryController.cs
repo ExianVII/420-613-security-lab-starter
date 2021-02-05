@@ -13,5 +13,19 @@ namespace SecurityLab1_Starter.Controllers
         {
             return View();
         }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+
+            LogingUtil lg = new LogingUtil();
+            lg.logToText(filterContext);
+            //Redirect or return a view, but not both.
+            filterContext.Result = RedirectToAction("Index", "Error");
+            // OR
+            filterContext.Result = new ViewResult
+            {
+                ViewName = "~/Views/Error/Index.cshtml"
+            };
+        }
     }
 }
